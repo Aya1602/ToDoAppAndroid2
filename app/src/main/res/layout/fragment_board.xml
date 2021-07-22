@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.onBoard.BoardFragment">
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </androidx.viewpager2.widget.ViewPager2>
+
+    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+        android:id="@+id/dots_indicator"
+        android:layout_width="181dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="650dp"
+        app:dotsColor="#090808"
+        app:dotsCornerRadius="8dp"
+        app:dotsSize="16dp"
+        app:dotsSpacing="4dp"
+        app:dotsWidthFactor="2.5"
+        app:progressMode="true"
+        app:selectedDotColor="#F44336"/>
+
+    <Button
+        android:id="@+id/btn_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SKIP"
+        android:padding="16dp"
+        android:layout_alignParentEnd="true"/>
+
+
+
+
+</RelativeLayout>
+
+
+<!--
+<Button
+android:id="@+id/btn_skip"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="SKIP"
+android:layout_marginStart="290dp"
+android:layout_marginTop="10dp"/>-->
