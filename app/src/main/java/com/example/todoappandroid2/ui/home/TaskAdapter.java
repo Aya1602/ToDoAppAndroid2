@@ -16,6 +16,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
@@ -23,16 +24,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     private ArrayList<Task> list = new ArrayList<>();
     private OnItemClickListener onItemClickListener;
 
-    /*public void addItems(ArrayList<String> list){
-        this.list.addAll(list);
-        notifyDataSetChanged();
-    }
-
-    public void addItem(String str){
-        this.list.add(str);
-        notifyDataSetChanged();
-    }
-*/
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -51,9 +42,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         return list.size();
     }
 
-    public void addItems(Task task) {
-        list.add(task);
+    public void addItem(Task task) {
+        list.add(0, task);
         notifyItemInserted(list.indexOf(task));
+    }
+
+    public void addItems(List<Task> list) {
+        this.list.addAll(list);
+        notifyDataSetChanged();
     }
 
     public Task getItem(int position) {
@@ -68,13 +64,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
-
-    /*public void addItems(ArrayList<String> list) {
-
-    }*/
-
-   /* public void addItems(Task task) {
-    }*/
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView textTitle,setData,setTime;
@@ -114,10 +103,5 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
             setData.setText(dateText);
             setTime.setText(timeText);
         }
-
-
-        /*public void onBind(String s) {
-            textTitle.setText(s);
-        }*/
     }
 }

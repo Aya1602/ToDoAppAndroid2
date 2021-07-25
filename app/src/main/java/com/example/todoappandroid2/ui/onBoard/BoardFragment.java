@@ -48,12 +48,6 @@ public class BoardFragment extends Fragment {
             }
         });
 
-        private void close() {
-            Prefs.getInstance().saveBoardsState();
-            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
-            navController.navigateUp();
-        }
-
         boardAdapter.SetOpenHome(this::btnFinishClick);
 
 
@@ -63,6 +57,12 @@ public class BoardFragment extends Fragment {
                 requireActivity().finish();
             }
         });
+    }
+
+    private void close() {
+        Prefs.getInstance().saveBoardsState();
+        NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+        navController.navigateUp();
     }
 
     private void navigate(int navigate) {

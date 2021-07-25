@@ -8,7 +8,7 @@ public class Prefs {
     private SharedPreferences preferences;
     private Prefs instance;
 
-    public static Prefs getInstance() {
+    public Prefs getInstance() {
         return instance;
     }
 

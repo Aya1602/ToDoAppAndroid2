@@ -42,8 +42,11 @@ public class FormFragment extends Fragment {
         String text = editText.getText().toString();
         Bundle bundle = new Bundle();
         Task task = new Task (text);
+        task.setCreatedAt(System.currentTimeMillis());
         bundle.putSerializable("task", task);
         getParentFragmentManager().setFragmentResult("rk_form", bundle);
+
+        App.getAppDataBase().taskDao().insert(task);
         close();
     }
 

@@ -17,10 +17,13 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.todoappandroid2.App;
 import com.example.todoappandroid2.OnItemClickListener;
 import com.example.todoappandroid2.R;
 import com.example.todoappandroid2.model.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -31,6 +34,8 @@ public class HomeFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         taskAdapter = new TaskAdapter();
+        List<Task> list = App.getAppDataBase().taskDao().getAll();
+        taskAdapter.addItems(list);
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -96,7 +101,7 @@ public class HomeFragment extends Fragment {
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 Task task = (Task) result.getSerializable("task");
                 String text = result.getString("text");
-                taskAdapter.addItems(task);
+                taskAdapter.addItem(task);
                 Log.e("Home", "text: " + task.getTitle());
                 //taskAdapter.addItems(task);
 
